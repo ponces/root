@@ -48,10 +48,18 @@ public class RootPlugin implements FlutterPlugin, MethodCallHandler {
 
   }
   private boolean isRooted() {
-    return RootTools.isAccessGiven();
+    try {
+      return RootTools.isAccessGiven();
+    } catch(Exception e) {
+      return false;
+    }
   }
   private boolean isRootAvailable() {
-    return RootTools.isRootAvailable();
+    try {
+      return RootTools.isRootAvailable();
+    } catch(Exception e) {
+      return false;
+    }
   }
 
   @Override
